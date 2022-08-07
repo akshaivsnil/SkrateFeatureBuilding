@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DesignSurface">
+    <option name="filePathToZoomLevelMap">
+      <map>
+        <entry key="..\:/SkrateFeatureBuilding/app/src/main/res/drawable/bg_gray_border_white_fill.xml" value="0.205" />
+        <entry key="..\:/SkrateFeatureBuilding/app/src/main/res/drawable/bg_one.xml" value="0.2055" />
+        <entry key="..\:/SkrateFeatureBuilding/app/src/main/res/drawable/bg_two.xml" value="0.2055" />
+        <entry key="..\:/SkrateFeatureBuilding/app/src/main/res/font/poppins_thin.xml" value="0.2640625" />
+        <entry key="..\:/SkrateFeatureBuilding/app/src/main/res/layout/activity_main.xml" value="0.23385416666666667" />
+        <entry key="..\:/SkrateFeatureBuilding/app/src/main/res/layout/activity_single.xml" value="0.23385416666666667" />
+        <entry key="..\:/SkrateFeatureBuilding/app/src/main/res/layout/fragment_home.xml" value="0.23385416666666667" />
+        <entry key="..\:/SkrateFeatureBuilding/app/src/main/res/layout/fragment_login.xml" value="0.152" />
+        <entry key="..\:/SkrateFeatureBuilding/app/src/main/res/layout/layout_newjob_container.xml" value="0.23385416666666667" />
+        <entry key="..\:/SkrateFeatureBuilding/app/src/main/res/layout/layout_newjob_item.xml" value="0.264" />
+        <entry key="..\:/SkrateFeatureBuilding/app/src/main/res/layout/layout_overview_container.xml" value="0.2328125" />
+        <entry key="..\:/SkrateFeatureBuilding/app/src/main/res/layout/layout_overview_item.xml" value="0.2328125" />
+        <entry key="..\:/SkrateFeatureBuilding/app/src/main/res/layout/layout_session_container.xml" value="0.23385416666666667" />
+        <entry key="..\:/SkrateFeatureBuilding/app/src/main/res/layout/layout_session_item.xml" value="0.23385416666666667" />
+      </map>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="JDK" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/build/classes" />
+  </component>
+  <component name="ProjectType">
+    <option name="id" value="Android" />
+  </component>
+</project>

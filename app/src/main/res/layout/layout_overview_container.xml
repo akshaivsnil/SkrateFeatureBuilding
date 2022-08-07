@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="@dimen/dimen16dp"
+        android:layout_marginTop="@dimen/dimen20dp"
+        android:background="@drawable/bg_gray_border_white_fill">
+
+        <com.google.android.material.textview.MaterialTextView
+            android:id="@+id/materialTextView3"
+            style="@style/TextViewStyle"
+            android:textSize="24sp"
+            android:textColor="@color/black"
+            android:layout_marginStart="@dimen/dimen10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:text="Over View" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/overViewRecycler"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dimen10dp"
+            android:orientation="vertical"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:layout_constraintTop_toBottomOf="@+id/materialTextView3"
+            tools:itemCount="3"
+            tools:listitem="@layout/layout_overview_item" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

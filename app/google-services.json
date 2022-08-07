@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "459131682446",
+    "project_id": "skratefeaturebuilding",
+    "storage_bucket": "skratefeaturebuilding.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:459131682446:android:a0a8540b2b80e0618253df",
+        "android_client_info": {
+          "package_name": "com.akshai.skratefeaturebuilding"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "459131682446-08v0drg7krdgcaqvvgo6eej15vi1ca0g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCd-DWw2OZ395MkxJ_NrT8wnaHu75mhJLA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "459131682446-08v0drg7krdgcaqvvgo6eej15vi1ca0g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

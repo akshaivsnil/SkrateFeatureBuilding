@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">SkrateFeatureBuilding</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="welcome_back_to_nskrate">Welcome Back To\nSkrate!!</string>
+    <string name="signIn">Sign In With Google</string>
+</resources>
