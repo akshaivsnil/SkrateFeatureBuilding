@@ -12,6 +12,7 @@ import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.fragment.findNavController
 import com.akshai.skratefeaturebuilding.R
 import com.akshai.skratefeaturebuilding.databinding.FragmentLoginBinding
+import com.akshai.skratefeaturebuilding.utils.SavedPreference
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -120,6 +121,8 @@ class LoginFragment : Fragment() {
             val account: GoogleSignInAccount? = completedTask.getResult(ApiException::class.java)
             if (account != null) {
                 UpdateUI(account)
+                Toast.makeText(requireContext(), "Login Success", Toast.LENGTH_SHORT).show()
+                this.findNavController().navigate(R.id.homeFragment)
             }
         } catch (e: ApiException) {
             Toast.makeText(requireContext(), e.toString(), Toast.LENGTH_SHORT).show()
@@ -132,8 +135,8 @@ class LoginFragment : Fragment() {
         val credential = GoogleAuthProvider.getCredential(account.idToken, null)
         firebaseAuth.signInWithCredential(credential).addOnCompleteListener { task ->
             if (task.isSuccessful) {
-                Toast.makeText(requireContext(), "Login Success", Toast.LENGTH_SHORT).show()
-                this.findNavController().navigate(R.id.homeFragment)
+                SavedPreference.setEmail(requireContext(), account.email.toString())
+                SavedPreference.setUsername(requireContext(), account.displayName.toString())
             }
         }
     }
