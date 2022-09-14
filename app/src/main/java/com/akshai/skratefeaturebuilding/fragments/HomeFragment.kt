@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.lifecycle.lifecycleScope
 import com.akshai.skratefeaturebuilding.MyViewModel
 import com.akshai.skratefeaturebuilding.R
 import com.akshai.skratefeaturebuilding.adaptor.NewJobsAdaptor
@@ -18,6 +19,7 @@ import com.akshai.skratefeaturebuilding.reponse.JobPostingsItem
 import com.akshai.skratefeaturebuilding.reponse.UpcomingSessionsItem
 import com.akshai.skratefeaturebuilding.utils.DataHandler
 import dagger.hilt.android.AndroidEntryPoint
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 
@@ -114,7 +116,6 @@ class HomeFragment : Fragment() {
             }
 
         }
-        viewModel.getMockApi()
     }
 
 

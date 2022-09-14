@@ -1,6 +1,7 @@
 package com.akshai.skratefeaturebuilding
 
 import android.os.Bundle
+import android.os.PersistableBundle
 import com.akshai.skratefeaturebuilding.base.BaseActivity
 import dagger.hilt.android.AndroidEntryPoint
 

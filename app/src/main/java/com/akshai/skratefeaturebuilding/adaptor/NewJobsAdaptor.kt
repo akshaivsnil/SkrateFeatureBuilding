@@ -19,7 +19,6 @@ class NewJobsAdaptor @Inject constructor() :
         field = value
         notifyDataSetChanged()
     }
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OverViewHolder {
         val binding =
             LayoutNewjobItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
@@ -33,15 +32,15 @@ class NewJobsAdaptor @Inject constructor() :
     override fun getItemCount(): Int = list.size
 
 
-    /*  private val diffUtil = object : DiffUtil.ItemCallback<OverViewModel>() {
-          override fun areItemsTheSame(oldItem: OverViewModel, newItem: OverViewModel): Boolean {
+        /*  private val diffUtil = object : DiffUtil.ItemCallback<OverViewModel>() {
+              override fun areItemsTheSame(oldItem: OverViewModel, newItem: OverViewModel): Boolean {
 
-              return oldItem.count == newItem.count
-          }
+                  return oldItem.count == newItem.count
+              }
 
-          override fun areContentsTheSame(oldItem: OverViewModel, newItem: OverViewModel): Boolean {
-              return oldItem == newItem
-          }
+              override fun areContentsTheSame(oldItem: OverViewModel, newItem: OverViewModel): Boolean {
+                  return oldItem == newItem
+              }
 
       }*/
 

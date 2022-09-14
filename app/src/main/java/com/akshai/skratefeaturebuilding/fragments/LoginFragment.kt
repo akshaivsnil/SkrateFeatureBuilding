@@ -2,26 +2,28 @@ package com.akshai.skratefeaturebuilding.fragments
 
 import android.content.Intent
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.navigation.NavHostController
-import androidx.navigation.fragment.NavHostFragment
+import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
 import com.akshai.skratefeaturebuilding.R
 import com.akshai.skratefeaturebuilding.databinding.FragmentLoginBinding
 import com.akshai.skratefeaturebuilding.utils.SavedPreference
+import com.akshai.skratefeaturebuilding.utils.Util.toast
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.android.gms.common.api.ApiException
+import com.google.android.gms.tasks.OnCompleteListener
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import dagger.hilt.android.AndroidEntryPoint
+
 
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
@@ -40,6 +42,7 @@ class LoginFragment : Fragment() {
     lateinit var mGoogleSignInClient: GoogleSignInClient
     val Req_Code: Int = 123
     var firebaseAuth = FirebaseAuth.getInstance()
+    var firebaseUser: FirebaseUser? = null
 
     private lateinit var binding: FragmentLoginBinding
 
@@ -91,21 +94,72 @@ class LoginFragment : Fragment() {
         mGoogleSignInClient = GoogleSignIn.getClient(requireContext(), gso)
         // initialize the firebaseAuth variable
         firebaseAuth = FirebaseAuth.getInstance()
-
+        firebaseUser = firebaseAuth.currentUser
 
         binding.googleSignIn.setOnClickListener {
             signInGoogle()
+        }
+
+        binding.googleLogin.setOnClickListener {
+            loginCheck()
         }
     }
 
     // signInGoogle() function
     private fun signInGoogle() {
 
-        val signInIntent: Intent = mGoogleSignInClient.signInIntent
-        startActivityForResult(signInIntent, Req_Code)
+       /* val signInIntent: Intent = mGoogleSignInClient.signInIntent
+        startActivityForResult(signInIntent, Req_Code)*/
+
+
+        /**
+         * pass email and password from editText
+         */
+        firebaseAuth.createUserWithEmailAndPassword("", "")
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    toast("created account successfully !")
+                    sendEmailVerification()
+                } else {
+                    toast("User already exists")
+                }
+            }
     }
 
+
+    /**
+     * To check the user is verified using email link
+     */
+    private fun loginCheck(){
+        firebaseAuth.signInWithEmailAndPassword("", "")
+            .addOnCompleteListener { signIn ->
+                if (signIn.isSuccessful) {
+                    toast("signed in successfully")
+                } else {
+                    toast("User not verified")
+                }
+            }
+    }
+
+
+    /**
+     * To send verification email
+     * Check the mail in spam folder
+     */
+    private fun sendEmailVerification() {
+        firebaseUser?.let {
+            it.sendEmailVerification().addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    toast("email sent to <mailId>")
+                }
+            }
+        }
+    }
+
+
+
     // onActivityResult() function : this is where we provide the task and data for the Google Account
+/*
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == Req_Code) {
@@ -113,6 +167,7 @@ class LoginFragment : Fragment() {
             handleResult(task)
         }
     }
+*/
 
 
     // handleResult() function -  this is where we update the UI after Google signin takes place
@@ -141,12 +196,22 @@ class LoginFragment : Fragment() {
         }
     }
 
+
     override fun onStart() {
         super.onStart()
-        if (GoogleSignIn.getLastSignedInAccount(requireContext()) != null) {
+       /* if (GoogleSignIn.getLastSignedInAccount(requireContext()) != null) {
 
             Toast.makeText(requireContext(), "Welcome Back!!!", Toast.LENGTH_SHORT).show()
-            this.findNavController().navigate(R.id.homeFragment)
+           // this.findNavController().navigate(R.id.homeFragment)
+        }*/
+
+        /**
+         * both method works fine
+         */
+
+        firebaseUser?.let {
+            toast("welcome back")
         }
     }
+
 }

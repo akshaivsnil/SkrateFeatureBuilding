@@ -7,9 +7,13 @@ import javax.inject.Inject
 
 class NetworkRepository @Inject constructor(
     val apiService: ApiService
-) {
+) :BaseRepository {
 
-    suspend fun getMockApi(): Response<MockApiResponse> {
+   /* suspend fun getMockApi(): Response<MockApiResponse> {
+
+    }*/
+
+    override  suspend fun getSampleData(): Response<MockApiResponse> {
         return apiService.getMockApi()
     }
 
